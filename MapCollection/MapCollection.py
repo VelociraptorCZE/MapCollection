@@ -1,4 +1,4 @@
-# ParticleEffect
+# MapCollection
 # Copyright (c) Simon Raichl 2019
 # MIT License
 
