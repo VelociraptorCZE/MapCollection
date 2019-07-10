@@ -5,6 +5,9 @@ It has same set of functions as Map and also works in nearly the same way.
 It's worth mention that every key is unique like in JS Map and
 also you can rewrite values.
 
+In JavaScript you can't use indexers to read, write or remove values from Map, 
+however this feature is supported by MapCollection.
+
 ### Import
 
 ```python
@@ -36,6 +39,12 @@ Removes particular key from MapCollection, returns True or False whether the ent
 mapCollection.delete("someKey")
 ```
 
+Or:
+
+```python
+del mapCollection["someKey"]
+```
+
 ### entries()
 
 Returns all entries in array.
@@ -54,10 +63,16 @@ mapCollection.foreach(lambda entry: print("Entry from MapCollection", entry))
 
 ### get(key)
 
-Returns value selected by key, returns value from MapCollection or None.
+Returns value selected by key from MapCollection or None if key wasn't found.
 
 ```python
 mapCollection.get("someKey")
+```
+
+Alternatively: 
+
+```python
+mapCollection["someKey"]
 ```
 
 ### has(key)
@@ -70,7 +85,7 @@ mapCollection.has("someKey")
 
 ### keys()
 
-Returns all keys in array.
+Returns all keys as array.
 
 ```python
 mapCollection.keys()
@@ -86,11 +101,17 @@ mapCollection.size()
 
 ### set(key, value)
 
-Sets a value alongside key or replaces value if key is already present in MapCollection,
-returns current MapCollection instance.
+Sets a value alongside key or replaces value if key is already present in MapCollection also
+returns current MapCollection instance so you can chain **set** function if you want to add multiple values on one line.
 
 ```python
 mapCollection.set(50, 100)
+```
+
+In addition you can set also value by indexer:
+
+```python
+mapCollection[50] = 100
 ```
 
 ### values()
@@ -98,5 +119,5 @@ mapCollection.set(50, 100)
 Returns all values in array.
 
 ```python
-mapCollection.keys()
+mapCollection.values()
 ```
